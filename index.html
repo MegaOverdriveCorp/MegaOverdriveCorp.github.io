@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MegaOverdriveCorp</title>
+<meta name="description" content="MegaOverdriveCorp. Accelerating enterprise synergy since 1989. Cloud, data, AI and digital transformation at overdrive speed.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Press+Start+2P&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mo-night:#0B1020; --mo-navy:#131A33; --mo-navy-2:#1C2547; --mo-ink:#06080F;
+  --mo-teal-deep:#163C48; --mo-teal:#1F5E6B; --mo-teal-light:#2E8A96; --mo-window:#7FD8E8;
+  --mo-yellow:#FFD84A; --mo-amber:#FFB020; --mo-orange:#FF7A1A; --mo-red:#E8402A;
+  --mo-text:#EEF1FF; --mo-text-dim:#9AA3C7;
+  --mo-ok:#5BE37A; --mo-warn:#FFD84A; --mo-bad:#FF4A5A;
+  --mo-font-display:"Pixelify Sans","Press Start 2P",monospace;
+  --mo-font-hud:"Press Start 2P",monospace;
+  --mo-font-body:"IBM Plex Sans",system-ui,sans-serif;
+  --mo-font-mono:"IBM Plex Mono",monospace;
+  --dither:repeating-conic-gradient(var(--a,var(--mo-navy)) 0 25%, var(--b,var(--mo-night)) 0 50%) 0 0/4px 4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--mo-night);color:var(--mo-text);font:16px/1.55 var(--mo-font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block}
+.pixel{image-rendering:pixelated;image-rendering:-webkit-optimize-contrast}
+a{color:var(--mo-window)}
+:focus-visible{outline:2px solid var(--mo-yellow);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{width:min(1120px,100% - 32px);margin:0 auto}
+.hud{font:10px/1.6 var(--mo-font-hud);text-transform:uppercase;letter-spacing:.04em;color:var(--mo-text-dim)}
+.hud-lg{font:12px/1.6 var(--mo-font-hud);text-transform:uppercase;letter-spacing:.04em}
+.mono{font-family:var(--mo-font-mono);font-variant-numeric:tabular-nums}
+
+/* bevels */
+.mo-bevel{background:var(--mo-navy);border:2px solid var(--mo-ink);
+  box-shadow:inset 2px 2px 0 var(--mo-navy-2),inset -2px -2px 0 var(--mo-ink),4px 4px 0 var(--mo-ink)}
+.mo-inset{background:var(--mo-night);border:2px solid var(--mo-ink);
+  box-shadow:inset 2px 2px 0 var(--mo-ink),inset -2px -2px 0 var(--mo-navy-2)}
+
+/* window */
+.win{display:flex;flex-direction:column}
+.win-bar{height:24px;background:var(--mo-navy-2);border-bottom:2px solid var(--mo-ink);display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.win-bar .hud{color:var(--mo-text)}
+.win-x{width:8px;height:8px;background:var(--mo-text-dim)}
+.win-body{padding:16px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;
+  font:10px/1 var(--mo-font-hud);text-transform:uppercase;letter-spacing:.04em;text-decoration:none;cursor:pointer;
+  border:2px solid var(--mo-ink);color:var(--mo-text);background:var(--mo-teal);
+  box-shadow:inset 2px 2px 0 var(--mo-teal-light),inset -2px -2px 0 var(--mo-teal-deep),4px 4px 0 var(--mo-ink)}
+.btn:hover{background:var(--mo-teal-light);box-shadow:inset 2px 2px 0 var(--mo-window),inset -2px -2px 0 var(--mo-teal-deep),4px 4px 0 var(--mo-ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:inset -2px -2px 0 var(--mo-teal-light),inset 2px 2px 0 var(--mo-teal-deep),2px 2px 0 var(--mo-ink)}
+.btn-primary{background:var(--mo-amber);color:var(--mo-ink);
+  box-shadow:inset 2px 2px 0 var(--mo-yellow),inset -2px -2px 0 var(--mo-orange),4px 4px 0 var(--mo-ink)}
+.btn-primary:hover{background:var(--mo-yellow);box-shadow:inset 2px 2px 0 #fff2a8,inset -2px -2px 0 var(--mo-orange),4px 4px 0 var(--mo-ink)}
+.btn-primary:active{box-shadow:inset -2px -2px 0 var(--mo-yellow),inset 2px 2px 0 var(--mo-orange),2px 2px 0 var(--mo-ink)}
+.btn-sm{min-height:36px;padding:0 12px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:var(--mo-navy);border-bottom:2px solid var(--mo-ink)}
+.nav .wrap{display:flex;align-items:center;gap:16px;min-height:56px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--mo-text);font:700 20px/1 var(--mo-font-display);letter-spacing:.02em}
+.nav-links{margin-left:auto;display:flex;gap:4px;list-style:none}
+.nav-links a{display:flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;color:var(--mo-text-dim);font:10px/1 var(--mo-font-hud);text-transform:uppercase;letter-spacing:.04em;border-bottom:4px solid transparent}
+.nav-links a:hover{color:var(--mo-text);background:var(--mo-navy-2)}
+.nav-links a[aria-current="true"]{color:var(--mo-amber);border-bottom-color:var(--mo-amber)}
+.crt-toggle{display:flex;align-items:center;gap:8px;cursor:pointer}
+.tog{width:32px;height:16px;background:var(--mo-night);border:2px solid var(--mo-ink);position:relative;box-shadow:inset 2px 2px 0 var(--mo-ink)}
+.tog::after{content:"";position:absolute;top:0;left:0;width:12px;height:12px;background:var(--mo-text-dim)}
+.crt-toggle input:checked+.tog::after{left:16px;background:var(--mo-amber)}
+.crt-toggle input{position:absolute;opacity:0;width:1px;height:1px}
+@media (max-width:720px){.nav-links{display:none}}
+
+/* scene */
+.hero{position:relative;overflow:hidden;background:var(--mo-night);min-height:620px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:72px}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;background:var(--mo-text)}
+.star.b{background:var(--mo-window)}
+.horizon{position:absolute;left:0;right:0;bottom:200px;height:64px;--a:var(--mo-navy);--b:var(--mo-night);background:var(--dither)}
+.horizon2{position:absolute;left:0;right:0;bottom:120px;height:80px;background:var(--mo-navy)}
+.ground{position:absolute;left:0;right:0;bottom:0;height:32px;background:var(--mo-teal-deep);border-top:2px solid var(--mo-ink)}
+.city{position:absolute;left:0;right:0;bottom:32px;height:260px;pointer-events:none}
+.city svg{position:absolute;left:0;bottom:0;width:100%;height:100%;shape-rendering:crispEdges}
+.hero-inner{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;padding:0 16px}
+.hero .hud{color:var(--mo-ok)}
+.wordmark{display:inline-flex;align-items:flex-end;gap:4px;margin:8px 0 0}
+.mo-wordmark{font:700 clamp(24px,7.2vw,84px)/1 var(--mo-font-display);transform:skewX(-8deg);display:inline-block;padding:4px 8px 0 4px;
+  background:linear-gradient(180deg,var(--mo-yellow) 0 35%,var(--mo-orange) 35% 70%,var(--mo-red) 70%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(2px 0 0 var(--mo-ink)) drop-shadow(-2px 0 0 var(--mo-ink)) drop-shadow(0 2px 0 var(--mo-ink)) drop-shadow(0 -2px 0 var(--mo-ink))}
+.arrow{width:48px;height:48px;margin-bottom:28px;flex:none}
+.tagline{font-size:18px;max-width:40ch;color:var(--mo-text)}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.ticker{position:relative;z-index:2;margin-top:auto;width:100%;border-top:2px solid var(--mo-ink);border-bottom:2px solid var(--mo-ink);background:var(--mo-navy);overflow:hidden}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;padding:12px 0;width:max-content;animation:tick 40s steps(400) infinite}
+.ticker-track span{font:10px/1 var(--mo-font-hud);text-transform:uppercase;letter-spacing:.04em;color:var(--mo-text-dim)}
+.ticker-track b{color:var(--mo-window);font-weight:400}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+@media (max-width:720px){.hero{min-height:680px;padding-top:48px}.arrow{width:32px;height:32px;margin-bottom:16px}.city{height:180px}}
+
+/* load sequence */
+.boot .mo-wordmark{animation:flick .45s steps(3) both}
+@keyframes flick{0%{opacity:0}33%{opacity:1}66%{opacity:0}100%{opacity:1}}
+.boot .win-lit{animation:lit .04s steps(1) both;animation-delay:calc(var(--i) * 40ms)}
+@keyframes lit{from{fill:var(--mo-teal-deep)}to{fill:var(--mo-window)}}
+@media (prefers-reduced-motion:reduce){.boot .mo-wordmark,.boot .win-lit{animation:none}}
+
+/* sections */
+section{padding:64px 0}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.sec-head h2{font:700 32px/1 var(--mo-font-display);letter-spacing:.02em}
+.sec-head .hud{margin-left:auto}
+.grid{display:grid;gap:24px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:960px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.g4,.g3,.g2{grid-template-columns:1fr}}
+
+/* kpi */
+.kpi-num{font:400 40px/1 var(--mo-font-display);margin:8px 0 12px}
+.kpi-num.hot{color:var(--mo-amber)}
+.bar{display:flex;gap:2px;height:8px}
+.bar i{flex:1;background:var(--mo-navy-2);border:1px solid var(--mo-ink)}
+.bar i.on{background:var(--mo-ok)}
+.bar.warn i.on{background:var(--mo-warn)}
+.bar.bad i.on{background:var(--mo-bad)}
+
+/* services */
+.svc .win-body{display:flex;flex-direction:column;gap:12px}
+.svc h3{font:700 20px/1.2 var(--mo-font-display)}
+.svc p{color:var(--mo-text-dim);font-size:15px}
+.icon16{width:48px;height:48px;shape-rendering:crispEdges}
+.svc-tag{margin-top:auto;display:inline-block;padding:4px 8px;background:var(--mo-night);border:2px solid var(--mo-ink);align-self:flex-start}
+
+/* products table */
+.tbl{width:100%;border-collapse:collapse;border:2px solid var(--mo-ink)}
+.tbl th{font:10px/1.6 var(--mo-font-hud);text-transform:uppercase;letter-spacing:.04em;color:var(--mo-text-dim);text-align:left;padding:12px;background:var(--mo-navy-2);border:1px solid var(--mo-teal-deep)}
+.tbl td{padding:12px;border:1px solid var(--mo-teal-deep);vertical-align:top;font-size:15px}
+.tbl tbody tr:nth-child(odd){background:var(--mo-night)}
+.tbl tbody tr:nth-child(even){background:var(--mo-navy)}
+.tbl tbody tr.sel td:first-child{box-shadow:inset 4px 0 0 var(--mo-orange)}
+.tbl tbody tr:hover{background:var(--mo-navy-2)}
+.tbl .name{font:700 17px/1.2 var(--mo-font-display)}
+.tbl .desc{color:var(--mo-text-dim)}
+.badge{display:inline-block;padding:4px 6px;font:10px/1 var(--mo-font-hud);text-transform:uppercase;border:2px solid var(--mo-ink);background:var(--mo-teal-deep);color:var(--mo-text)}
+.badge.ok{background:var(--mo-ok);color:var(--mo-ink)}
+.badge.warn{background:var(--mo-warn);color:var(--mo-ink)}
+.tbl .bar{width:120px}
+.tbl-wrap{overflow-x:auto}
+@media (max-width:720px){.tbl .bar{width:80px}.tbl td,.tbl th{padding:8px}}
+@media (max-width:600px){
+  .tbl thead{display:none}
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl tr{border-bottom:2px solid var(--mo-ink);padding:8px 0}
+  .tbl td{border:0;padding:4px 12px}
+  .tbl td:last-child{display:flex;align-items:center;gap:12px;padding-bottom:8px}
+  .tbl .bar{width:120px}
+  .tbl tbody tr.sel td:first-child{box-shadow:none}
+  .tbl tbody tr.sel{box-shadow:inset 4px 0 0 var(--mo-orange)}
+}
+
+/* chart */
+.chart{width:100%;height:auto;shape-rendering:crispEdges}
+.legend{display:flex;gap:24px;flex-wrap:wrap;margin-top:12px}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend i{width:12px;height:12px;border:1px solid var(--mo-ink)}
+
+/* roadmap list */
+.road{list-style:none;display:grid;gap:12px}
+.road li{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:start;padding:12px;background:var(--mo-night);border:2px solid var(--mo-ink)}
+.road li.now{box-shadow:inset 4px 0 0 var(--mo-orange)}
+.road b{font:700 16px/1.3 var(--mo-font-display)}
+.road p{color:var(--mo-text-dim);font-size:15px}
+
+/* form */
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.field input,.field textarea,.field select{width:100%;min-height:44px;padding:8px 12px;color:var(--mo-text);font:15px var(--mo-font-mono);background:var(--mo-night);border:2px solid var(--mo-ink);caret-color:var(--mo-amber);
+  box-shadow:inset 2px 2px 0 var(--mo-ink),inset -2px -2px 0 var(--mo-navy-2)}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--mo-yellow);outline-offset:2px}
+.check{display:flex;align-items:center;gap:12px;cursor:pointer;min-height:44px}
+.check input{position:absolute;opacity:0;width:1px;height:1px}
+.box{width:16px;height:16px;background:var(--mo-night);border:2px solid var(--mo-ink);box-shadow:inset 1px 1px 0 var(--mo-ink);position:relative;flex:none}
+.check input:checked+.box::after{content:"";position:absolute;inset:2px;background:var(--mo-amber)}
+.check input:focus-visible+.box{outline:2px solid var(--mo-yellow);outline-offset:2px}
+
+/* footer */
+footer{border-top:2px solid var(--mo-ink);background:var(--mo-navy);padding:32px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+footer .hud{margin-left:auto}
+
+/* toast */
+.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;padding:12px 16px;display:none;align-items:center;gap:12px}
+.toast.show{display:flex;animation:drop .2s steps(3) both}
+@keyframes drop{from{transform:translate(-50%,-48px)}to{transform:translate(-50%,0)}}
+
+/* crt */
+.crt{position:fixed;inset:0;pointer-events:none;z-index:40;display:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+body.crt-on .crt{display:block}
+
+/* blink */
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.blink{animation:none}}
+</style>
+</head>
+<body>
+<div class="crt" aria-hidden="true"></div>
+<div class="toast mo-bevel" role="status" id="toast"><span class="hud" style="color:var(--mo-ok)">TRANSMISSION RECEIVED</span><span id="toastMsg">A synergy consultant will respond within one fiscal quarter.</span></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="MegaOverdriveCorp home">
+      <svg class="pixel" width="24" height="24" viewBox="0 0 24 24" shape-rendering="crispEdges" aria-hidden="true"><rect width="24" height="24" fill="#0B1020"/><rect x="7" y="7" width="14" height="14" fill="#E8402A"/><rect x="3" y="3" width="14" height="14" fill="#FFB020"/></svg>
+      MegaOverdriveCorp
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#what">What we do</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <label class="crt-toggle hud"><input type="checkbox" id="crt"><span class="tog" aria-hidden="true"></span>CRT</label>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero boot" id="hero" style="padding-top:0;padding-bottom:0">
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="horizon" aria-hidden="true"></div>
+  <div class="horizon2" aria-hidden="true"></div>
+  <div class="city" id="city" aria-hidden="true"></div>
+  <div class="ground" aria-hidden="true"></div>
+
+  <div class="hero-inner" style="padding-top:72px">
+    <span class="hud">System online <span class="blink">_</span></span>
+    <h1 class="wordmark">
+      <span class="mo-wordmark">MegaOverdriveCorp</span>
+      <svg class="arrow" viewBox="0 0 24 24" shape-rendering="crispEdges" aria-hidden="true">
+        <path fill="#06080F" d="M2 20h4v-2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h2v-2h2V2h-12v2h2v2h2v2h-2v2h-2v2h-2v2h-2v2h-2v2h-2z"/>
+        <path fill="#FFB020" d="M4 18h2v-2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h2v-2h2V4h-10v2h2v2h2v2h-2v2h-2v2h-2v2h-2v2h-2v2h-2z"/>
+        <path fill="#FFD84A" d="M12 4h8v2h-8zM14 6h2v2h-2zM16 8h2v2h-2zM4 16h2v2h-2zM6 14h2v2h-2zM8 12h2v2h-2zM10 10h2v2h-2z"/>
+      </svg>
+    </h1>
+    <p class="tagline">Accelerating enterprise synergy since 1989. Cloud, data and AI at overdrive speed, delivered by a corporation that has never once slowed down.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact">Press start</a>
+      <a class="btn" href="https://github.com/MegaOverdriveCorp" rel="noopener">View source</a>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Synergy <b>+12%</b></span><span>Uptime <b>99.99%</b></span><span>Quarterly overdrive <b>Q4 engaged</b></span><span>Pipelines <b>1,048 running</b></span><span>Cloud <b>fully leveraged</b></span><span>Paradigms <b>shifted</b></span><span>Blockers <b>0</b></span><span>Coffee <b>critical</b></span>
+      <span>Synergy <b>+12%</b></span><span>Uptime <b>99.99%</b></span><span>Quarterly overdrive <b>Q4 engaged</b></span><span>Pipelines <b>1,048 running</b></span><span>Cloud <b>fully leveraged</b></span><span>Paradigms <b>shifted</b></span><span>Blockers <b>0</b></span><span>Coffee <b>critical</b></span>
+    </div>
+  </div>
+</section>
+
+<section id="kpis" aria-labelledby="kpi-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="kpi-h">Quarterly overdrive</h2><span class="hud">FY2026 Q4 / live feed</span></div>
+    <div class="grid g4">
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Synergy index</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num hot mono">+12.4%</div><div class="bar" data-fill="8"></div><p class="hud" style="margin-top:8px">Quarter on quarter</p></div></div>
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Uptime</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">99.99%</div><div class="bar" data-fill="10"></div><p class="hud" style="margin-top:8px">Five nines pending</p></div></div>
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Pipelines</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">1,048</div><div class="bar" data-fill="7"></div><p class="hud" style="margin-top:8px">Running right now</p></div></div>
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Legacy debt</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">14%</div><div class="bar bad" data-fill="2"></div><p class="hud" style="margin-top:8px">Scheduled for deletion</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="what" aria-labelledby="what-h" style="background:var(--mo-navy);border-top:2px solid var(--mo-ink);border-bottom:2px solid var(--mo-ink)">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="what-h">What we do</h2><span class="hud">Four pillars. One overdrive.</span></div>
+    <div class="grid g4">
+      <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 01</span><span class="win-x"></span></div><div class="win-body">
+        <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3" width="14" height="9" fill="#1F5E6B"/><rect x="2" y="4" width="12" height="7" fill="#7FD8E8"/><rect x="5" y="13" width="6" height="1" fill="#1F5E6B"/><rect x="3" y="14" width="10" height="1" fill="#1F5E6B"/><rect x="4" y="6" width="3" height="1" fill="#0B1020"/><rect x="4" y="8" width="6" height="1" fill="#0B1020"/></svg>
+        <h3>Digital Transformation</h3>
+        <p>We take your business and we make it digital. Then we transform it. Then we transform the transformation. Results are measured in paradigms shifted per quarter.</p>
+        <span class="svc-tag hud">Paradigm ready</span></div></div>
+      <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 02</span><span class="win-x"></span></div><div class="win-body">
+        <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="4" width="8" height="2" fill="#7FD8E8"/><rect x="2" y="6" width="12" height="2" fill="#7FD8E8"/><rect x="1" y="8" width="14" height="3" fill="#7FD8E8"/><rect x="3" y="11" width="10" height="1" fill="#2E8A96"/><rect x="6" y="13" width="1" height="2" fill="#FFB020"/><rect x="9" y="13" width="1" height="2" fill="#FFB020"/></svg>
+        <h3>Cloud Overdrive</h3>
+        <p>Lift, shift, and then lift again. Our cloud practice migrates workloads to the platform of your choice and leaves the invoices for the finance department to admire.</p>
+        <span class="svc-tag hud">Fully leveraged</span></div></div>
+      <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 03</span><span class="win-x"></span></div><div class="win-body">
+        <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="11" width="4" height="4" fill="#1F5E6B"/><rect x="6" y="7" width="4" height="8" fill="#2E8A96"/><rect x="11" y="2" width="4" height="13" fill="#FFB020"/><rect x="11" y="2" width="4" height="2" fill="#FFD84A"/></svg>
+        <h3>Data Synergy</h3>
+        <p>Bronze, silver, gold. Our medallion-grade lakehouse pipelines turn raw operational exhaust into dashboards that executives can nod at with confidence.</p>
+        <span class="svc-tag hud">Medallion certified</span></div></div>
+      <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 04</span><span class="win-x"></span></div><div class="win-body">
+        <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="10" height="11" fill="#1F5E6B"/><rect x="4" y="3" width="8" height="9" fill="#131A33"/><rect x="5" y="5" width="2" height="2" fill="#7FD8E8"/><rect x="9" y="5" width="2" height="2" fill="#7FD8E8"/><rect x="5" y="9" width="6" height="1" fill="#FFB020"/><rect x="7" y="0" width="2" height="2" fill="#FFB020"/><rect x="2" y="13" width="12" height="2" fill="#1F5E6B"/></svg>
+        <h3>AI Acceleration</h3>
+        <p>Agents that build, agents that review, agents that review the reviewing agents. We put large language models in front of your work items and let the overdrive begin.</p>
+        <span class="svc-tag hud">Agent enabled</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="products" aria-labelledby="prod-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="prod-h">What we are working on</h2><span class="hud">Product line / status</span></div>
+    <div class="win mo-bevel">
+      <div class="win-bar"><span class="hud">PRODUCTS.DAT</span><span class="win-x"></span></div>
+      <div class="tbl-wrap">
+      <table class="tbl" id="prodTable">
+        <thead><tr><th>Product</th><th>Description</th><th>Status</th><th>Progress</th></tr></thead>
+        <tbody>
+          <tr class="sel" tabindex="0"><td><span class="name">OVERDRIVE OS</span></td><td class="desc">The operating layer for everything else we sell. A workspace, a platform, a paradigm. Boots in three frames.</td><td><span class="badge ok">Shipping</span></td><td><div class="bar" data-fill="9"></div><span class="hud">90%</span></td></tr>
+          <tr tabindex="0"><td><span class="name">SYNERGY ENGINE</span></td><td class="desc">Medallion lakehouse pipelines with lineage you can trace backwards from a KPI tile all the way to the source table that broke it.</td><td><span class="badge warn">Beta</span></td><td><div class="bar" data-fill="7"></div><span class="hud">72%</span></td></tr>
+          <tr tabindex="0"><td><span class="name">QUARTERLY HUD</span></td><td class="desc">A heads-up display for executives. Every number that matters, one of them orange. Refreshes before the meeting starts.</td><td><span class="badge warn">Beta</span></td><td><div class="bar" data-fill="6"></div><span class="hud">60%</span></td></tr>
+          <tr tabindex="0"><td><span class="name">PIPELINE RUNNER</span></td><td class="desc">A two-agent system that writes code for your work items, reviews it, and files a polite comment when it disagrees with itself.</td><td><span class="badge">Alpha</span></td><td><div class="bar warn" data-fill="4"></div><span class="hud">40%</span></td></tr>
+          <tr tabindex="0"><td><span class="name">FABRIC LITE</span></td><td class="desc">A local sandbox that pretends to be an enterprise data platform in a single container, for engineers who want to test before they pay.</td><td><span class="badge">Alpha</span></td><td><div class="bar bad" data-fill="2"></div><span class="hud">18%</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <p class="hud" style="margin-top:16px">Progress figures are projected, audited, and in no way influenced by the sales department.</p>
+  </div>
+</section>
+
+<section id="roadmap" aria-labelledby="road-h" style="background:var(--mo-navy);border-top:2px solid var(--mo-ink);border-bottom:2px solid var(--mo-ink)">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="road-h">Roadmap</h2><span class="hud">Growth is the only direction we support</span></div>
+    <div class="grid g2">
+      <div class="win mo-bevel">
+        <div class="win-bar"><span class="hud">Synergy per quarter</span><span class="win-x"></span></div>
+        <div class="win-body">
+          <svg class="chart" viewBox="0 0 480 240" role="img" aria-label="Bar and stepped line chart of synergy units per quarter, rising from 20 to 96">
+            <g stroke="#163C48" stroke-width="1" stroke-dasharray="2 2">
+              <line x1="40" y1="200" x2="470" y2="200"/><line x1="40" y1="150" x2="470" y2="150"/><line x1="40" y1="100" x2="470" y2="100"/><line x1="40" y1="50" x2="470" y2="50"/>
+            </g>
+            <g fill="#1F5E6B">
+              <rect x="60" y="160" width="32" height="40"/><rect x="112" y="140" width="32" height="60"/><rect x="164" y="128" width="32" height="72"/><rect x="216" y="104" width="32" height="96"/><rect x="268" y="96" width="32" height="104"/><rect x="320" y="72" width="32" height="128"/><rect x="372" y="56" width="32" height="144"/>
+            </g>
+            <rect x="424" y="8" width="32" height="192" fill="#FFB020"/>
+            <polyline fill="none" stroke="#FF7A1A" stroke-width="4" stroke-linejoin="miter" points="60,172 112,172 112,148 164,148 164,132 216,132 216,112 268,112 268,100 320,100 320,80 372,80 372,60 424,60 424,16 456,16"/>
+            <g fill="#9AA3C7" font-family="'Press Start 2P',monospace" font-size="8">
+              <text x="68" y="222">Q1</text><text x="120" y="222">Q2</text><text x="172" y="222">Q3</text><text x="224" y="222">Q4</text><text x="276" y="222">Q1</text><text x="328" y="222">Q2</text><text x="380" y="222">Q3</text><text x="432" y="222">Q4</text>
+              <text x="0" y="204">0</text><text x="0" y="154">25</text><text x="0" y="104">50</text><text x="0" y="54">75</text>
+            </g>
+          </svg>
+          <div class="legend hud"><span><i style="background:#1F5E6B"></i>Synergy units</span><span><i style="background:#FFB020"></i>This quarter</span><span><i style="background:#FF7A1A"></i>Trajectory</span></div>
+        </div>
+      </div>
+      <div class="win mo-bevel">
+        <div class="win-bar"><span class="hud">Milestones</span><span class="win-x"></span></div>
+        <div class="win-body">
+          <ul class="road">
+            <li><span class="hud">1989</span><div><b>Founded</b><p>Three engineers, one modem, unlimited ambition. The first quarterly report was printed on a dot-matrix printer and it is still on the wall.</p></div></li>
+            <li><span class="hud">2024 Q3</span><div><b>Overdrive OS 1.0</b><p>Shipped on time, which nobody expected and the sales department had already announced.</p></div></li>
+            <li class="now"><span class="hud">2026 Q4</span><div><b>Synergy Engine GA</b><p>Lineage, medallion layers and a release pipeline that promotes itself. Currently in beta with a selection of brave clients.</p></div></li>
+            <li><span class="hud">2027 Q1</span><div><b>Pipeline Runner</b><p>The reviewing agent gains the ability to reject the building agent. Morale among agents is expected to dip briefly.</p></div></li>
+            <li><span class="hud">2027 Q2</span><div><b>Fabric Lite 1.0</b><p>A single container that boots the whole platform locally. Growth arrow continues up and to the right as per corporate policy.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="contact-h">Initiate synergy</h2><span class="hud">Contact / careers</span></div>
+    <div class="grid g2">
+      <div class="win mo-bevel">
+        <div class="win-bar"><span class="hud">Transmission form</span><span class="win-x"></span></div>
+        <form class="win-body" id="contactForm" novalidate>
+          <div class="field"><label class="hud" for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label class="hud" for="f-org">Organisation</label><input id="f-org" name="org" autocomplete="organization"></div>
+          <div class="field"><label class="hud" for="f-need">What needs accelerating</label>
+            <select id="f-need" name="need"><option>Digital transformation</option><option>Cloud overdrive</option><option>Data synergy</option><option>AI acceleration</option><option>All of the above, immediately</option></select></div>
+          <div class="field"><label class="hud" for="f-msg">Message</label><textarea id="f-msg" name="msg" placeholder="Describe your paradigm."></textarea></div>
+          <label class="check"><input type="checkbox" name="nda" checked><span class="box" aria-hidden="true"></span><span class="hud">Send me the quarterly overdrive report</span></label>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-primary" type="submit">Transmit</button><button class="btn" type="reset">Clear</button></div>
+          <p class="hud" style="margin-top:16px">This form is a demo. Nothing is sent anywhere, which is also our data retention policy.</p>
+        </form>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div class="win mo-bevel">
+          <div class="win-bar"><span class="hud">Careers</span><span class="win-x"></span></div>
+          <div class="win-body">
+            <h3 style="font:700 22px/1.2 var(--mo-font-display);margin-bottom:8px">Join the overdrive</h3>
+            <p style="color:var(--mo-text-dim);font-size:15px;margin-bottom:16px">We are hiring data engineers, cloud architects, agent wranglers and one person who understands the fax machine. Remote first, console second.</p>
+            <ul class="road">
+              <li><span class="hud">Open</span><div><b>Senior Data Engineer</b><p>Medallion architecture, lakehouse, release pipelines. Must tolerate the colour orange.</p></div></li>
+              <li><span class="hud">Open</span><div><b>Agent Wrangler</b><p>Keep the builder and the reviewer from agreeing with each other too quickly.</p></div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="win mo-bevel">
+          <div class="win-bar"><span class="hud">Headquarters</span><span class="win-x"></span></div>
+          <div class="win-body mono" style="font-size:14px;line-height:1.8">
+            <div><span class="hud">Floor</span> 42, Overdrive Tower</div>
+            <div><span class="hud">City</span> The one in the skyline</div>
+            <div><span class="hud">Code</span> <a href="https://github.com/MegaOverdriveCorp" rel="noopener">github.com/MegaOverdriveCorp</a></div>
+            <div><span class="hud">Hours</span> 24/7, in three frames</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="pixel" width="24" height="24" viewBox="0 0 24 24" shape-rendering="crispEdges" aria-hidden="true"><rect width="24" height="24" fill="#0B1020"/><rect x="7" y="7" width="14" height="14" fill="#E8402A"/><rect x="3" y="3" width="14" height="14" fill="#FFB020"/></svg>
+    <span style="font-size:14px;color:var(--mo-text-dim)">© 1989 to 2026 MegaOverdriveCorp. All synergy reserved. A fictional corporation with a real style guide.</span>
+    <span class="hud">Press start <span class="blink">_</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // seeded stars
+  var seed=1989;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  var stars=document.getElementById('stars'),frag=document.createDocumentFragment(),list=[];
+  for(var i=0;i<70;i++){var s=document.createElement('i');s.className='star'+(rnd()<.2?' b':'');var sz=rnd()<.3?2:1;
+    s.style.cssText='left:'+Math.round(rnd()*100)+'%;top:'+Math.round(rnd()*60)+'%;width:'+sz+'px;height:'+sz+'px';frag.appendChild(s);list.push(s)}
+  stars.appendChild(frag);
+  if(!reduce){setInterval(function(){var s=list[Math.floor(rnd()*list.length)];s.classList.toggle('b')},2500)}
+
+  // skyline: two layers, built on an 8px grid
+  function layer(color,win,minH,maxH,yBase,step,cls){
+    var out='',x=0,w=0,n=0;
+    while(x<1600){var bw=(Math.floor(rnd()*4)+3)*16;var bh=(Math.floor(rnd()*(maxH-minH))+minH)*8;
+      out+='<rect x="'+x+'" y="'+(yBase-bh)+'" width="'+bw+'" height="'+bh+'" fill="'+color+'"/>';
+      if(rnd()<.25){var ax=x+Math.floor(bw/2);out+='<rect x="'+ax+'" y="'+(yBase-bh-16)+'" width="2" height="16" fill="'+color+'"/>'}
+      for(var wy=yBase-bh+8;wy<yBase-8;wy+=8){for(var wx=x+4;wx<x+bw-4;wx+=8){if(rnd()<.33){out+='<rect class="'+cls+'" style="--i:'+(n++%40)+'" x="'+wx+'" y="'+wy+'" width="2" height="3" fill="'+win+'"/>'}}}
+      x+=bw+(rnd()<.3?8:0)}
+    return out}
+  var city=document.getElementById('city');
+  city.innerHTML='<svg class="back" viewBox="0 0 1600 260" preserveAspectRatio="xMidYMax slice">'+layer('#163C48','#2E8A96',12,28,260,8,'')+'</svg>'
+    +'<svg class="front" viewBox="0 0 1600 260" preserveAspectRatio="xMidYMax slice">'+layer('#1F5E6B','#7FD8E8',5,18,260,8,'win-lit')+'</svg>';
+  // parallax in 4px steps
+  var back=city.querySelector('.back'),front=city.querySelector('.front');
+  if(!reduce){addEventListener('scroll',function(){var y=scrollY;if(y>700)return;back.style.transform='translateY('+Math.round(y*0.3/4)*4+'px)';front.style.transform='translateY('+Math.round(y*0.15/4)*4+'px)'},{passive:true})}
+  setTimeout(function(){document.getElementById('hero').classList.remove('boot')},2500);
+
+  // segmented bars
+  document.querySelectorAll('.bar').forEach(function(b){var f=+b.dataset.fill||0,h='';for(var i=0;i<10;i++)h+='<i'+(i<f?' class="on"':'')+'></i>';b.innerHTML=h});
+
+  // nav current
+  var links=[].slice.call(document.querySelectorAll('#navLinks a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function cur(){var y=scrollY+120,idx=-1;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)idx=i});links.forEach(function(a,i){a.setAttribute('aria-current',i===idx?'true':'false')})}
+  addEventListener('scroll',cur,{passive:true});cur();
+
+  // crt toggle persisted
+  var crt=document.getElementById('crt');
+  try{if(localStorage.getItem('mo-crt')==='1'){crt.checked=true;document.body.classList.add('crt-on')}}catch(e){}
+  crt.addEventListener('change',function(){document.body.classList.toggle('crt-on',crt.checked);try{localStorage.setItem('mo-crt',crt.checked?'1':'0')}catch(e){}});
+  if(!crt.checked&&!reduce){try{if(localStorage.getItem('mo-crt')===null){crt.checked=true;document.body.classList.add('crt-on')}}catch(e){}}
+
+  // table row select
+  var rows=document.querySelectorAll('#prodTable tbody tr');
+  rows.forEach(function(r){function sel(){rows.forEach(function(x){x.classList.remove('sel')});r.classList.add('sel')}
+    r.addEventListener('click',sel);r.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel()}})});
+
+  // form
+  var toast=document.getElementById('toast'),tm;
+  document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();
+    var name=document.getElementById('f-name');
+    if(!name.value.trim()){name.focus();document.getElementById('toastMsg').textContent='Name required. The fax machine needs a recipient.';}
+    else{document.getElementById('toastMsg').textContent='Thanks '+name.value.trim()+'. A synergy consultant will respond within one fiscal quarter.';e.target.reset()}
+    toast.classList.remove('show');void toast.offsetWidth;toast.classList.add('show');clearTimeout(tm);tm=setTimeout(function(){toast.classList.remove('show')},4000)});
+})();
+</script>
+</body>
+</html>
