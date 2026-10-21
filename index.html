@@ -139,6 +139,10 @@ section{padding:64px 0}
 .svc h3{font:700 20px/1.2 var(--mo-font-display)}
 .svc p{color:var(--mo-text-dim);font-size:15px}
 .icon16{width:48px;height:48px;shape-rendering:crispEdges}
+.feat{list-style:none;display:grid;gap:8px;font-size:14px;color:var(--mo-text-dim)}
+.feat li{padding-left:16px;position:relative}
+.feat li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;background:var(--mo-teal-light)}
+.row{margin-top:auto;display:flex;align-items:center;gap:16px;padding-top:8px}
 .svc-tag{margin-top:auto;display:inline-block;padding:4px 8px;background:var(--mo-night);border:2px solid var(--mo-ink);align-self:flex-start}
 
 /* products table */
@@ -226,7 +230,7 @@ body.crt-on .crt{display:block}
     <ul class="nav-links" id="navLinks">
       <li><a href="#what">What we do</a></li>
       <li><a href="#products">Products</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#roadmap">How we build</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <label class="crt-toggle hud"><input type="checkbox" id="crt"><span class="tog" aria-hidden="true"></span>CRT</label>
@@ -251,7 +255,7 @@ body.crt-on .crt{display:block}
         <path fill="#FFD84A" d="M12 4h8v2h-8zM14 6h2v2h-2zM16 8h2v2h-2zM4 16h2v2h-2zM6 14h2v2h-2zM8 12h2v2h-2zM10 10h2v2h-2z"/>
       </svg>
     </h1>
-    <p class="tagline">Accelerating enterprise synergy since 1989. Cloud, data and AI at overdrive speed, delivered by a corporation that has never once slowed down.</p>
+    <p class="tagline">Accelerating enterprise synergy since 1989. Browser-based tools for cloud architecture, data modelling and the occasional pizza, delivered by a corporation that has never once slowed down.</p>
     <div class="hero-cta">
       <a class="btn btn-primary" href="#contact">Press start</a>
       <a class="btn" href="https://github.com/MegaOverdriveCorp" rel="noopener">View source</a>
@@ -260,107 +264,123 @@ body.crt-on .crt{display:block}
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Synergy <b>+12%</b></span><span>Uptime <b>99.99%</b></span><span>Quarterly overdrive <b>Q4 engaged</b></span><span>Pipelines <b>1,048 running</b></span><span>Cloud <b>fully leveraged</b></span><span>Paradigms <b>shifted</b></span><span>Blockers <b>0</b></span><span>Coffee <b>critical</b></span>
-      <span>Synergy <b>+12%</b></span><span>Uptime <b>99.99%</b></span><span>Quarterly overdrive <b>Q4 engaged</b></span><span>Pipelines <b>1,048 running</b></span><span>Cloud <b>fully leveraged</b></span><span>Paradigms <b>shifted</b></span><span>Blockers <b>0</b></span><span>Coffee <b>critical</b></span>
+      <span>Repositories <b>4</b></span><span>Super Architect <b>one HTML file</b></span><span>NYP Korting <b>codes 100 to 775</b></span><span>Servers <b>0</b></span><span>Claude <b>built in</b></span><span>Styles <b>Zakelijk / Minimaal / 16-bit</b></span><span>Languages <b>NL / EN / ES</b></span><span>Orders placed <b>0</b></span>
+      <span>Repositories <b>4</b></span><span>Super Architect <b>one HTML file</b></span><span>NYP Korting <b>codes 100 to 775</b></span><span>Servers <b>0</b></span><span>Claude <b>built in</b></span><span>Styles <b>Zakelijk / Minimaal / 16-bit</b></span><span>Languages <b>NL / EN / ES</b></span><span>Orders placed <b>0</b></span>
     </div>
   </div>
 </section>
 
 <section id="kpis" aria-labelledby="kpi-h">
   <div class="wrap">
-    <div class="sec-head"><h2 id="kpi-h">Quarterly overdrive</h2><span class="hud">FY2026 Q4 / live feed</span></div>
+    <div class="sec-head"><h2 id="kpi-h">Status report</h2><span class="hud">github.com/MegaOverdriveCorp</span></div>
     <div class="grid g4">
-      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Synergy index</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num hot mono">+12.4%</div><div class="bar" data-fill="8"></div><p class="hud" style="margin-top:8px">Quarter on quarter</p></div></div>
-      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Uptime</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">99.99%</div><div class="bar" data-fill="10"></div><p class="hud" style="margin-top:8px">Five nines pending</p></div></div>
-      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Pipelines</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">1,048</div><div class="bar" data-fill="7"></div><p class="hud" style="margin-top:8px">Running right now</p></div></div>
-      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Legacy debt</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">14%</div><div class="bar bad" data-fill="2"></div><p class="hud" style="margin-top:8px">Scheduled for deletion</p></div></div>
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Repositories</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num hot mono">4</div><div class="bar" data-fill="4"></div><p class="hud" style="margin-top:8px">Two products, one site, one profile</p></div></div>
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Languages</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">3</div><div class="bar" data-fill="3"></div><p class="hud" style="margin-top:8px">JavaScript, Python, HTML</p></div></div>
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Servers required</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">0</div><div class="bar" data-fill="0"></div><p class="hud" style="margin-top:8px">Browser and localhost only</p></div></div>
+      <div class="win mo-bevel"><div class="win-bar"><span class="hud">Claude inside</span><span class="win-x"></span></div><div class="win-body"><div class="kpi-num mono">100%</div><div class="bar" data-fill="10"></div><p class="hud" style="margin-top:8px">Every product ships with a skill</p></div></div>
     </div>
   </div>
 </section>
 
 <section id="what" aria-labelledby="what-h" style="background:var(--mo-navy);border-top:2px solid var(--mo-ink);border-bottom:2px solid var(--mo-ink)">
   <div class="wrap">
-    <div class="sec-head"><h2 id="what-h">What we do</h2><span class="hud">Four pillars. One overdrive.</span></div>
+    <div class="sec-head"><h2 id="what-h">What we do</h2><span class="hud">Four practices. One overdrive.</span></div>
     <div class="grid g4">
       <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 01</span><span class="win-x"></span></div><div class="win-body">
         <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="3" width="14" height="9" fill="#1F5E6B"/><rect x="2" y="4" width="12" height="7" fill="#7FD8E8"/><rect x="5" y="13" width="6" height="1" fill="#1F5E6B"/><rect x="3" y="14" width="10" height="1" fill="#1F5E6B"/><rect x="4" y="6" width="3" height="1" fill="#0B1020"/><rect x="4" y="8" width="6" height="1" fill="#0B1020"/></svg>
-        <h3>Digital Transformation</h3>
-        <p>We take your business and we make it digital. Then we transform it. Then we transform the transformation. Results are measured in paradigms shifted per quarter.</p>
-        <span class="svc-tag hud">Paradigm ready</span></div></div>
+        <h3>Cloud Architecture</h3>
+        <p>Landing zones, hub-spoke, AKS baselines, Fabric medallions and RAG on Azure OpenAI, drawn with the official icons and arranged with one click. Super Architect does this in a single HTML file.</p>
+        <span class="svc-tag hud">Auto layout</span></div></div>
       <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 02</span><span class="win-x"></span></div><div class="win-body">
         <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="4" width="8" height="2" fill="#7FD8E8"/><rect x="2" y="6" width="12" height="2" fill="#7FD8E8"/><rect x="1" y="8" width="14" height="3" fill="#7FD8E8"/><rect x="3" y="11" width="10" height="1" fill="#2E8A96"/><rect x="6" y="13" width="1" height="2" fill="#FFB020"/><rect x="9" y="13" width="1" height="2" fill="#FFB020"/></svg>
-        <h3>Cloud Overdrive</h3>
-        <p>Lift, shift, and then lift again. Our cloud practice migrates workloads to the platform of your choice and leaves the invoices for the finance department to admire.</p>
-        <span class="svc-tag hud">Fully leveraged</span></div></div>
+        <h3>Data Modelling</h3>
+        <p>Star schemas, fact constellations, SCD type 2, Data Vault and 3NF with proper keys and crow's foot relationships, exported as SQL DDL for Fabric Warehouse and Synapse or as a Mermaid ER diagram.</p>
+        <span class="svc-tag hud">Kimball certified</span></div></div>
       <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 03</span><span class="win-x"></span></div><div class="win-body">
         <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="11" width="4" height="4" fill="#1F5E6B"/><rect x="6" y="7" width="4" height="8" fill="#2E8A96"/><rect x="11" y="2" width="4" height="13" fill="#FFB020"/><rect x="11" y="2" width="4" height="2" fill="#FFD84A"/></svg>
-        <h3>Data Synergy</h3>
-        <p>Bronze, silver, gold. Our medallion-grade lakehouse pipelines turn raw operational exhaust into dashboards that executives can nod at with confidence.</p>
-        <span class="svc-tag hud">Medallion certified</span></div></div>
+        <h3>AI Acceleration</h3>
+        <p>Claude built in. Describe a diagram or a data model in one sentence and it appears on the canvas. Bundled skills run the app as a Claude artifact or turn a repo, dbt project or Bicep code into a model.</p>
+        <span class="svc-tag hud">Skill enabled</span></div></div>
       <div class="win mo-bevel svc"><div class="win-bar"><span class="hud">Pillar 04</span><span class="win-x"></span></div><div class="win-body">
         <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="10" height="11" fill="#1F5E6B"/><rect x="4" y="3" width="8" height="9" fill="#131A33"/><rect x="5" y="5" width="2" height="2" fill="#7FD8E8"/><rect x="9" y="5" width="2" height="2" fill="#7FD8E8"/><rect x="5" y="9" width="6" height="1" fill="#FFB020"/><rect x="7" y="0" width="2" height="2" fill="#FFB020"/><rect x="2" y="13" width="12" height="2" fill="#1F5E6B"/></svg>
-        <h3>AI Acceleration</h3>
-        <p>Agents that build, agents that review, agents that review the reviewing agents. We put large language models in front of your work items and let the overdrive begin.</p>
-        <span class="svc-tag hud">Agent enabled</span></div></div>
+        <h3>Cost Optimisation</h3>
+        <p>Our most focused practice. A local proxy tries every New York Pizza discount code from 100 to 775 on your basket and reports the best combination. Enterprise savings, one pizza at a time.</p>
+        <span class="svc-tag hud">Codes 100 to 775</span></div></div>
     </div>
   </div>
 </section>
 
 <section id="products" aria-labelledby="prod-h">
   <div class="wrap">
-    <div class="sec-head"><h2 id="prod-h">What we are working on</h2><span class="hud">Product line / status</span></div>
-    <div class="win mo-bevel">
-      <div class="win-bar"><span class="hud">PRODUCTS.DAT</span><span class="win-x"></span></div>
-      <div class="tbl-wrap">
-      <table class="tbl" id="prodTable">
-        <thead><tr><th>Product</th><th>Description</th><th>Status</th><th>Progress</th></tr></thead>
-        <tbody>
-          <tr class="sel" tabindex="0"><td><span class="name">OVERDRIVE OS</span></td><td class="desc">The operating layer for everything else we sell. A workspace, a platform, a paradigm. Boots in three frames.</td><td><span class="badge ok">Shipping</span></td><td><div class="bar" data-fill="9"></div><span class="hud">90%</span></td></tr>
-          <tr tabindex="0"><td><span class="name">SYNERGY ENGINE</span></td><td class="desc">Medallion lakehouse pipelines with lineage you can trace backwards from a KPI tile all the way to the source table that broke it.</td><td><span class="badge warn">Beta</span></td><td><div class="bar" data-fill="7"></div><span class="hud">72%</span></td></tr>
-          <tr tabindex="0"><td><span class="name">QUARTERLY HUD</span></td><td class="desc">A heads-up display for executives. Every number that matters, one of them orange. Refreshes before the meeting starts.</td><td><span class="badge warn">Beta</span></td><td><div class="bar" data-fill="6"></div><span class="hud">60%</span></td></tr>
-          <tr tabindex="0"><td><span class="name">PIPELINE RUNNER</span></td><td class="desc">A two-agent system that writes code for your work items, reviews it, and files a polite comment when it disagrees with itself.</td><td><span class="badge">Alpha</span></td><td><div class="bar warn" data-fill="4"></div><span class="hud">40%</span></td></tr>
-          <tr tabindex="0"><td><span class="name">FABRIC LITE</span></td><td class="desc">A local sandbox that pretends to be an enterprise data platform in a single container, for engineers who want to test before they pay.</td><td><span class="badge">Alpha</span></td><td><div class="bar bad" data-fill="2"></div><span class="hud">18%</span></td></tr>
-        </tbody>
-      </table>
+    <div class="sec-head"><h2 id="prod-h">What we are working on</h2><span class="hud">Product line / real repositories</span></div>
+    <div class="grid g2">
+      <div class="win mo-bevel svc">
+        <div class="win-bar"><span class="hud">super-architect</span><span class="badge">JavaScript</span></div>
+        <div class="win-body">
+          <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="5" height="4" fill="#7FD8E8"/><rect x="10" y="1" width="5" height="4" fill="#7FD8E8"/><rect x="5" y="11" width="6" height="4" fill="#FFB020"/><rect x="3" y="5" width="1" height="3" fill="#2E8A96"/><rect x="12" y="5" width="1" height="3" fill="#2E8A96"/><rect x="3" y="8" width="10" height="1" fill="#2E8A96"/><rect x="7" y="8" width="2" height="3" fill="#2E8A96"/></svg>
+          <h3>Super Architect</h3>
+          <p>Draw cloud architectures and database schemas in your browser. One HTML file, no server, no install, no account, Claude built in.</p>
+          <ul class="feat">
+            <li>Official Azure and Microsoft Fabric icons, plus dbt, dlt and Snowflake. Groups, labelled data flows, notes, legend, auto layout.</li>
+            <li>Templates: Fabric medallion, real-time intelligence, mirroring, CI/CD, Databricks medallion and MLOps, Azure landing zone, hub-spoke, AKS baseline, RAG with Azure OpenAI, Lambda, Kappa.</li>
+            <li>Data models with keys and crow's foot relationships. Kimball star schema, fact constellation, SCD type 2, Data Vault, 3NF. Exports SQL DDL for Fabric Warehouse and Synapse, and Mermaid ER diagrams.</li>
+            <li>Ask Claude for a diagram in one sentence, with your own API key or as a Claude artifact through the bundled skill. The ralphitecture skill turns a repo, a Fabric workspace export, dbt, Terraform or Bicep into an importable model.</li>
+            <li>PNG, SVG and JSON export. Three styles, one of them 16-bit. Dutch, English and Spanish. Works offline.</li>
+          </ul>
+          <div class="row"><span class="badge warn">Private</span><a class="btn btn-sm" href="https://github.com/MegaOverdriveCorp/super-architect" rel="noopener">Repository</a></div>
+        </div>
+      </div>
+      <div class="win mo-bevel svc">
+        <div class="win-bar"><span class="hud">new-york-pizza-korting</span><span class="badge">Python</span></div>
+        <div class="win-body">
+          <svg class="icon16" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="12" height="12" fill="#FFB020"/><rect x="3" y="3" width="10" height="10" fill="#FFD84A"/><rect x="5" y="5" width="2" height="2" fill="#E8402A"/><rect x="9" y="6" width="2" height="2" fill="#E8402A"/><rect x="6" y="9" width="2" height="2" fill="#E8402A"/><rect x="10" y="10" width="2" height="2" fill="#E8402A"/></svg>
+          <h3>New York Pizza Korting</h3>
+          <p>Find the discount codes that apply to a New York Pizza order. Fill a basket, run the search, get the best code or combination of codes.</p>
+          <ul class="feat">
+            <li>A local proxy in front of the public web shop adds a Get JSON basket button to every page and a Run now button that searches with live progress.</li>
+            <li>Tries the numeric codes in a range (100 to 775 by default), reports what each one takes off, and stacks the codes that apply to find the best combination.</li>
+            <li>Runs in a separate shop session, so your basket is untouched. Never places an order, never touches payment details, refuses checkout unless you say so.</li>
+            <li>Python 3.12 and uv. CLI (korting), importable client library, tests without network access, ruff for lint and format.</li>
+            <li>Replaces the original PHP script, which is kept in legacy/ for reference only.</li>
+          </ul>
+          <div class="row"><span class="badge warn">Private</span><a class="btn btn-sm" href="https://github.com/MegaOverdriveCorp/new-york-pizza-korting" rel="noopener">Repository</a></div>
+        </div>
       </div>
     </div>
-    <p class="hud" style="margin-top:16px">Progress figures are projected, audited, and in no way influenced by the sales department.</p>
+    <p class="hud" style="margin-top:16px">Both repositories are private at the time of writing. The links work for members of the organisation.</p>
   </div>
 </section>
 
 <section id="roadmap" aria-labelledby="road-h" style="background:var(--mo-navy);border-top:2px solid var(--mo-ink);border-bottom:2px solid var(--mo-ink)">
   <div class="wrap">
-    <div class="sec-head"><h2 id="road-h">Roadmap</h2><span class="hud">Growth is the only direction we support</span></div>
+    <div class="sec-head"><h2 id="road-h">How we build</h2><span class="hud">Operating principles, observed in the repositories</span></div>
     <div class="grid g2">
       <div class="win mo-bevel">
-        <div class="win-bar"><span class="hud">Synergy per quarter</span><span class="win-x"></span></div>
+        <div class="win-bar"><span class="hud">Repositories by language</span><span class="win-x"></span></div>
         <div class="win-body">
-          <svg class="chart" viewBox="0 0 480 240" role="img" aria-label="Bar and stepped line chart of synergy units per quarter, rising from 20 to 96">
-            <g stroke="#163C48" stroke-width="1" stroke-dasharray="2 2">
-              <line x1="40" y1="200" x2="470" y2="200"/><line x1="40" y1="150" x2="470" y2="150"/><line x1="40" y1="100" x2="470" y2="100"/><line x1="40" y1="50" x2="470" y2="50"/>
-            </g>
-            <g fill="#1F5E6B">
-              <rect x="60" y="160" width="32" height="40"/><rect x="112" y="140" width="32" height="60"/><rect x="164" y="128" width="32" height="72"/><rect x="216" y="104" width="32" height="96"/><rect x="268" y="96" width="32" height="104"/><rect x="320" y="72" width="32" height="128"/><rect x="372" y="56" width="32" height="144"/>
-            </g>
-            <rect x="424" y="8" width="32" height="192" fill="#FFB020"/>
-            <polyline fill="none" stroke="#FF7A1A" stroke-width="4" stroke-linejoin="miter" points="60,172 112,172 112,148 164,148 164,132 216,132 216,112 268,112 268,100 320,100 320,80 372,80 372,60 424,60 424,16 456,16"/>
+          <svg class="chart" viewBox="0 0 480 200" role="img" aria-label="Bar chart: JavaScript 1 repository, Python 1 repository, HTML 1 repository, profile 1 repository">
+            <g stroke="#163C48" stroke-width="1" stroke-dasharray="2 2"><line x1="40" y1="160" x2="470" y2="160"/><line x1="40" y1="100" x2="470" y2="100"/><line x1="40" y1="40" x2="470" y2="40"/></g>
+            <rect x="70" y="40" width="64" height="120" fill="#FFB020"/>
+            <rect x="170" y="40" width="64" height="120" fill="#1F5E6B"/>
+            <rect x="270" y="40" width="64" height="120" fill="#1F5E6B"/>
+            <rect x="370" y="40" width="64" height="120" fill="#163C48"/>
             <g fill="#9AA3C7" font-family="'Press Start 2P',monospace" font-size="8">
-              <text x="68" y="222">Q1</text><text x="120" y="222">Q2</text><text x="172" y="222">Q3</text><text x="224" y="222">Q4</text><text x="276" y="222">Q1</text><text x="328" y="222">Q2</text><text x="380" y="222">Q3</text><text x="432" y="222">Q4</text>
-              <text x="0" y="204">0</text><text x="0" y="154">25</text><text x="0" y="104">50</text><text x="0" y="54">75</text>
+              <text x="62" y="184">JAVASCRIPT</text><text x="178" y="184">PYTHON</text><text x="286" y="184">HTML</text><text x="374" y="184">PROFILE</text>
+              <text x="0" y="164">0</text><text x="0" y="44">1</text>
             </g>
           </svg>
-          <div class="legend hud"><span><i style="background:#1F5E6B"></i>Synergy units</span><span><i style="background:#FFB020"></i>This quarter</span><span><i style="background:#FF7A1A"></i>Trajectory</span></div>
+          <div class="legend hud"><span><i style="background:#FFB020"></i>super-architect</span><span><i style="background:#1F5E6B"></i>new-york-pizza-korting, this site</span><span><i style="background:#163C48"></i>.github</span></div>
         </div>
       </div>
       <div class="win mo-bevel">
-        <div class="win-bar"><span class="hud">Milestones</span><span class="win-x"></span></div>
+        <div class="win-bar"><span class="hud">Principles</span><span class="win-x"></span></div>
         <div class="win-body">
           <ul class="road">
-            <li><span class="hud">1989</span><div><b>Founded</b><p>Three engineers, one modem, unlimited ambition. The first quarterly report was printed on a dot-matrix printer and it is still on the wall.</p></div></li>
-            <li><span class="hud">2024 Q3</span><div><b>Overdrive OS 1.0</b><p>Shipped on time, which nobody expected and the sales department had already announced.</p></div></li>
-            <li class="now"><span class="hud">2026 Q4</span><div><b>Synergy Engine GA</b><p>Lineage, medallion layers and a release pipeline that promotes itself. Currently in beta with a selection of brave clients.</p></div></li>
-            <li><span class="hud">2027 Q1</span><div><b>Pipeline Runner</b><p>The reviewing agent gains the ability to reject the building agent. Morale among agents is expected to dip briefly.</p></div></li>
-            <li><span class="hud">2027 Q2</span><div><b>Fabric Lite 1.0</b><p>A single container that boots the whole platform locally. Growth arrow continues up and to the right as per corporate policy.</p></div></li>
+            <li class="now"><span class="hud">One file</span><div><b>Ship a single file when you can</b><p>Super Architect is one HTML page with icons and logo inline, built from src/ by a Python script with no packages. This site is one HTML file too.</p></div></li>
+            <li><span class="hud">Local</span><div><b>No server, no account</b><p>Diagrams save in your browser. The pizza tool runs a proxy on localhost only and refuses to place orders unless you ask.</p></div></li>
+            <li><span class="hud">Claude</span><div><b>Claude built in, keys stay yours</b><p>Super Architect talks to api.anthropic.com with your own key, never written into the file, or runs as a Claude artifact through its bundled skill.</p></div></li>
+            <li><span class="hud">Tooling</span><div><b>uv, pytest, ruff</b><p>The Python side uses uv for environments, pytest with captured HTML fixtures so tests need no network, and ruff for lint and format.</p></div></li>
+            <li><span class="hud">Style</span><div><b>Three styles, one of them 16-bit</b><p>Zakelijk, Minimaal and the retro pixel style you are looking at right now, which is also the house style of this page.</p></div></li>
           </ul>
         </div>
       </div>
@@ -378,7 +398,7 @@ body.crt-on .crt{display:block}
           <div class="field"><label class="hud" for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
           <div class="field"><label class="hud" for="f-org">Organisation</label><input id="f-org" name="org" autocomplete="organization"></div>
           <div class="field"><label class="hud" for="f-need">What needs accelerating</label>
-            <select id="f-need" name="need"><option>Digital transformation</option><option>Cloud overdrive</option><option>Data synergy</option><option>AI acceleration</option><option>All of the above, immediately</option></select></div>
+            <select id="f-need" name="need"><option>Cloud architecture</option><option>Data modelling</option><option>AI acceleration</option><option>Pizza discounts</option><option>All of the above, immediately</option></select></div>
           <div class="field"><label class="hud" for="f-msg">Message</label><textarea id="f-msg" name="msg" placeholder="Describe your paradigm."></textarea></div>
           <label class="check"><input type="checkbox" name="nda" checked><span class="box" aria-hidden="true"></span><span class="hud">Send me the quarterly overdrive report</span></label>
           <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-primary" type="submit">Transmit</button><button class="btn" type="reset">Clear</button></div>
@@ -387,23 +407,20 @@ body.crt-on .crt{display:block}
       </div>
       <div style="display:flex;flex-direction:column;gap:24px">
         <div class="win mo-bevel">
-          <div class="win-bar"><span class="hud">Careers</span><span class="win-x"></span></div>
+          <div class="win-bar"><span class="hud">This site</span><span class="win-x"></span></div>
           <div class="win-body">
-            <h3 style="font:700 22px/1.2 var(--mo-font-display);margin-bottom:8px">Join the overdrive</h3>
-            <p style="color:var(--mo-text-dim);font-size:15px;margin-bottom:16px">We are hiring data engineers, cloud architects, agent wranglers and one person who understands the fax machine. Remote first, console second.</p>
-            <ul class="road">
-              <li><span class="hud">Open</span><div><b>Senior Data Engineer</b><p>Medallion architecture, lakehouse, release pipelines. Must tolerate the colour orange.</p></div></li>
-              <li><span class="hud">Open</span><div><b>Agent Wrangler</b><p>Keep the builder and the reviewer from agreeing with each other too quickly.</p></div></li>
-            </ul>
+            <h3 style="font:700 22px/1.2 var(--mo-font-display);margin-bottom:8px">Open source, one file</h3>
+            <p style="color:var(--mo-text-dim);font-size:15px;margin-bottom:16px">This page is the public repository MegaOverdriveCorp.github.io: a single index.html with the whole 16-bit design system inline, served by GitHub Pages. The palette, bevels and HUD type are in the :root block, ready to copy.</p>
+            <div class="row"><span class="badge ok">Public</span><a class="btn btn-sm" href="https://github.com/MegaOverdriveCorp/MegaOverdriveCorp.github.io" rel="noopener">Repository</a></div>
           </div>
         </div>
         <div class="win mo-bevel">
-          <div class="win-bar"><span class="hud">Headquarters</span><span class="win-x"></span></div>
+          <div class="win-bar"><span class="hud">Coordinates</span><span class="win-x"></span></div>
           <div class="win-body mono" style="font-size:14px;line-height:1.8">
-            <div><span class="hud">Floor</span> 42, Overdrive Tower</div>
-            <div><span class="hud">City</span> The one in the skyline</div>
-            <div><span class="hud">Code</span> <a href="https://github.com/MegaOverdriveCorp" rel="noopener">github.com/MegaOverdriveCorp</a></div>
-            <div><span class="hud">Hours</span> 24/7, in three frames</div>
+            <div><span class="hud">Org</span> <a href="https://github.com/MegaOverdriveCorp" rel="noopener">github.com/MegaOverdriveCorp</a></div>
+            <div><span class="hud">Site</span> <a href="https://megaoverdrivecorp.github.io">megaoverdrivecorp.github.io</a></div>
+            <div><span class="hud">Repos</span> super-architect, new-york-pizza-korting, MegaOverdriveCorp.github.io, .github</div>
+            <div><span class="hud">Style</span> 16-bit, as shipped in Super Architect</div>
           </div>
         </div>
       </div>
